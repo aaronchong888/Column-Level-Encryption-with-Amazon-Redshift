@@ -19,17 +19,23 @@ For **AWS Lambda**, create a .zip file deployment package with the required depe
 
 1. Install the `miscreant` library to a new package directory
 
-> pip install --target ./package miscreant
+```
+pip install --target ./package miscreant
+```
 
 2. Create a deployment package with the installed library at the root
 
-> cd package
-> zip -r ../my-deployment-package.zip .
+```
+cd package
+zip -r ../my-deployment-package.zip .
+```
 
 3. Add the `aws_lambda_udf-redshift_encrypt-decrypt-logic.py` file to the root of the zip file
 
-> cd ..
-> zip -g my-deployment-package.zip aws_lambda_udf-redshift_encrypt-decrypt-logic.py
+```
+cd ..
+zip -g my-deployment-package.zip aws_lambda_udf-redshift_encrypt-decrypt-logic.py
+```
 
 4. Create a new Lambda function with `Python 3.7` runtime, then [upload](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-zip.html#configuration-function-update) the `my-deployment-package.zip` for the function code
 
